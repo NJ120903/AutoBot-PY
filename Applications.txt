@@ -9,4 +9,7 @@ Message on whatsapp
 play on youtube
 application typing
 jokes
+play music
+calculator
+live location
 exit terminal
