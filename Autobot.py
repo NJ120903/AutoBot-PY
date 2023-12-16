@@ -127,6 +127,14 @@ if __name__ == "__main__":
             speak("My name is AutoBot")
             print("My name is AutoBot")
 
+        #play music
+        elif 'play music' in query:
+            speak("Here you go with Music")
+            music_dir = "C:\\Users\\DELL\\OneDrive\\Desktop\\AutoBot\\music"
+            songs = os.listdir(music_dir)
+            print(songs)
+            random = os.startfile(os.path.join(music_dir, songs[0]))
+
         # Send a WhatsApp Message to a Contact at HH:MM(24hourstime)
         elif 'whatsapp' in query:
             pywhatkit.sendwhatmsg("+917588428967", "Hi I am AutoBot", 18, 31)
