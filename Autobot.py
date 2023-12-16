@@ -90,6 +90,9 @@ if __name__ == "__main__":
         elif 'cartoon' in query:
             webbrowser.open("https://aniwatch.to/home?source=pwa")
             speak("opening aniwatch")
+        elif "where am i" in query or "locate me" in query:
+            webbrowser.open("https://whatmylocation.com/")
+            speak("connecting to the satelite and sending information to the server securing connection.")
         
         #search information from wikipedia
         elif 'wikipedia' in query:
