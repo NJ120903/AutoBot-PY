@@ -8,6 +8,7 @@ import pywhatkit
 import pyautogui
 import pyjokes
 import webbrowser
+import wolframalpha
 
 
 
@@ -126,6 +127,17 @@ if __name__ == "__main__":
         elif 'your name' in query:
             speak("My name is AutoBot")
             print("My name is AutoBot")
+
+        #calculator
+        elif "calculate" in query:
+            app_id = "VAA29Q-8GHL2XU5AL"
+            client = wolframalpha.Client(app_id)
+            indx = query.lower().split().index('calculate')
+            query = query.split()[indx + 1:]
+            res = client.query(' '.join(query))
+            answer = next(res.results).text
+            print("The answer is " + answer)
+            speak("The answer is " + answer)
 
         #play music
         elif 'play music' in query:
