@@ -7,4 +7,4 @@ pip install pywhatkit
 pip install pyautogui
 pip install pyjokes
 pip install webbrowser
-pip install wolframaplha
+pip install wolframalpha
