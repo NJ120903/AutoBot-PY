@@ -1,10 +1,10 @@
-pip install pyttsx3
-pip install SpeechRecognition
-pip install datetime
-pip install os
-pip install wikipedia
-pip install pywhatkit
-pip install pyautogui
-pip install pyjokes
-pip install webbrowser
-pip install wolframalpha
+pyttsx3
+SpeechRecognition
+datetime
+os
+wikipedia
+pywhatkit
+pyautogui
+pyjokes
+webbrowser
+wolframalpha
