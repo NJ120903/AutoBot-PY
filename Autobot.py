@@ -9,6 +9,7 @@ import pyautogui
 import pyjokes
 import webbrowser
 import wolframalpha
+import requests
 
 
 
@@ -55,6 +56,21 @@ def wishings():
         print("Good Night Boss                      How can I help You!")
         speak("Good Night Boss                      How can I help You!")
 
+def get_weather(city):
+    api_key = "d051bb504714f1db20aa0dd3063e894b"
+    base_url = "http://api.openweathermap.org/data/2.5/weather?"
+    complete_url = base_url + "q=" + city + "&appid=" + api_key
+    response = requests.get(complete_url)
+    data = response.json()
+    if data["cod"] != "404":
+        weather_data = data["main"]
+        weather_desc = data["weather"][0]["description"]
+        temp = weather_data["temp"] - 273.15  # Convert from Kelvin to Celsius
+        speak(f"The weather in {city} is {weather_desc} with a temperature of {temp:.2f} degrees Celsius.")
+    else:
+        speak("City not found.")
+
+
 
 #time speak
 if __name__ == "__main__":
@@ -65,6 +81,14 @@ if __name__ == "__main__":
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             print(strTime)
             speak(f"Sir, the time is {strTime}")
+        
+        #Weather of any city    
+        elif 'weather' in query:
+            try:
+                city = query.split('in')[-1].strip()
+                get_weather(city)
+            except:
+                speak("Please specify a city. For example, 'weather in London'.")
 
         #open any application
         elif 'open chrome' in query:
@@ -87,7 +111,7 @@ if __name__ == "__main__":
         elif 'open whatsapp' in query:
             webbrowser.open("https://web.whatsapp.com/")
             speak("opening whatsapp")
-        elif 'cartoon' in query:
+        elif 'cartoon' in query or 'anime' in query:
             webbrowser.open("https://aniwatch.to/home?source=pwa")
             speak("opening aniwatch")
         elif "where am i" in query or "locate me" in query:
@@ -186,5 +210,4 @@ if __name__ == "__main__":
         elif 'shutdown' in query:
             speak("Okay Boss, See you soon")
             quit()
-
 
