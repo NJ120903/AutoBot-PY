@@ -13,3 +13,4 @@ play music
 calculator
 live location
 exit terminal
+Tells weather of specific city
