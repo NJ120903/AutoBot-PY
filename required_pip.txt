@@ -8,3 +8,4 @@ pyautogui
 pyjokes
 webbrowser
 wolframalpha
+requests
